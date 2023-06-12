@@ -12,6 +12,7 @@
 
   ## Description
   My task was to build a text editor that runs in the browser. The app will be a single-page application that meets the PWA criteria. Additionally, it will feature a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application will also function offline. It will be deployed to Heroku.
+  Deployed Heroku Link: *INSERT HERE*
 
   ## Installation
   N/A
@@ -32,5 +33,4 @@
   My Github Username: lyskizach  
   My Github Profile: https://github.com/lyskizach  
   For additional questions, contact me by email at: lyski.zach@icloud.com  
-  
   
