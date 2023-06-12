@@ -7,7 +7,7 @@ const initdb = async () =>
         console.log('jate database already exists');
         return;
       }
-      db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
+      db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true  });
       console.log('jate database created');
     },
   });
@@ -18,7 +18,7 @@ export const putDb = async (content) => {
     const jateDB = await openDB('jate', 2);
     const tx = jateDB.transaction('jate', 'readwrite');
     const store = tx.objectStore('jate');
-    const request = store.put({ id: 1, value: content});
+    const request = store.put({ id: 1, jate: content});
     const result = await request;
     console.log('added to db', result);
   } catch (err) {
@@ -39,6 +39,28 @@ export const getDb = async () => {
   } catch (err) {
     console.log(err);
   };
+};
+
+const eraseDB = async () => {
+  try {
+    const jateDB = await openDB('jate', 1);
+    const tx = jateDB.transaction('jate', 'readwrite');
+    const store = tx.objectStore('jate');
+
+    // Delete data with id 1
+    await store.delete(1);
+
+    // Delete data with id 2
+    await store.delete(2);
+
+    console.log('Data erased successfully');
+
+      // Clear localStorage
+      localStorage.clear();
+      console.log('localStorage cleared');
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 initdb();
